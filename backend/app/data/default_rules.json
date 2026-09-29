@@ -1,0 +1,93 @@
+{
+  "version": "1.0.0",
+  "description": "Default fuzzy transition rules for MedFA MVP — 10 conditions, 15 symptoms",
+  "last_updated": "2026-09-29",
+  "status": "research_only",
+  "changelog": [
+    {"version": "1.0.0", "date": "2026-09-29", "notes": "Initial rule base with 10 conditions"}
+  ],
+
+  "rules": [
+    {"rule_id": "R001", "symptom_id": "temperature_c", "fuzzy_label": "moderate_fever", "source_state": "influenza", "target_state": "influenza", "weight": 0.85, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R002", "symptom_id": "temperature_c", "fuzzy_label": "high_fever", "source_state": "influenza", "target_state": "influenza", "weight": 0.92, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R003", "symptom_id": "fatigue", "fuzzy_label": "severe", "source_state": "influenza", "target_state": "influenza", "weight": 0.80, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R004", "symptom_id": "body_aches", "fuzzy_label": "severe", "source_state": "influenza", "target_state": "influenza", "weight": 0.85, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R005", "symptom_id": "body_aches", "fuzzy_label": "moderate", "source_state": "influenza", "target_state": "influenza", "weight": 0.65, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R006", "symptom_id": "cough", "fuzzy_label": "moderate", "source_state": "influenza", "target_state": "influenza", "weight": 0.60, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R007", "symptom_id": "cough", "fuzzy_label": "severe", "source_state": "influenza", "target_state": "influenza", "weight": 0.70, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R008", "symptom_id": "sore_throat", "fuzzy_label": "moderate", "source_state": "influenza", "target_state": "influenza", "weight": 0.50, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R009", "symptom_id": "headache", "fuzzy_label": "moderate", "source_state": "influenza", "target_state": "influenza", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R010", "symptom_id": "runny_nose", "fuzzy_label": "moderate", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.85, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R011", "symptom_id": "runny_nose", "fuzzy_label": "severe", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.90, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R012", "symptom_id": "sore_throat", "fuzzy_label": "moderate", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.75, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R013", "symptom_id": "sore_throat", "fuzzy_label": "severe", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.80, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R014", "symptom_id": "cough", "fuzzy_label": "mild", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.60, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R015", "symptom_id": "cough", "fuzzy_label": "moderate", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.70, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R016", "symptom_id": "temperature_c", "fuzzy_label": "low_fever", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.50, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R017", "symptom_id": "fatigue", "fuzzy_label": "mild", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.45, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R018", "symptom_id": "fatigue", "fuzzy_label": "moderate", "source_state": "common_cold", "target_state": "common_cold", "weight": 0.50, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R019", "symptom_id": "headache", "fuzzy_label": "severe", "source_state": "migraine", "target_state": "migraine", "weight": 0.95, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R020", "symptom_id": "headache", "fuzzy_label": "moderate", "source_state": "migraine", "target_state": "migraine", "weight": 0.70, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R021", "symptom_id": "nausea", "fuzzy_label": "moderate", "source_state": "migraine", "target_state": "migraine", "weight": 0.65, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R022", "symptom_id": "nausea", "fuzzy_label": "severe", "source_state": "migraine", "target_state": "migraine", "weight": 0.75, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R023", "symptom_id": "dizziness", "fuzzy_label": "moderate", "source_state": "migraine", "target_state": "migraine", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R024", "symptom_id": "fatigue", "fuzzy_label": "moderate", "source_state": "migraine", "target_state": "migraine", "weight": 0.45, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R025", "symptom_id": "headache", "fuzzy_label": "moderate", "source_state": "tension_headache", "target_state": "tension_headache", "weight": 0.85, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R026", "symptom_id": "headache", "fuzzy_label": "mild", "source_state": "tension_headache", "target_state": "tension_headache", "weight": 0.65, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R027", "symptom_id": "fatigue", "fuzzy_label": "moderate", "source_state": "tension_headache", "target_state": "tension_headache", "weight": 0.50, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R028", "symptom_id": "anxiety_level", "fuzzy_label": "moderate", "source_state": "tension_headache", "target_state": "tension_headache", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R029", "symptom_id": "body_aches", "fuzzy_label": "mild", "source_state": "tension_headache", "target_state": "tension_headache", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R030", "symptom_id": "heartburn", "fuzzy_label": "severe", "source_state": "gerd", "target_state": "gerd", "weight": 0.92, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R031", "symptom_id": "heartburn", "fuzzy_label": "moderate", "source_state": "gerd", "target_state": "gerd", "weight": 0.78, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R032", "symptom_id": "chest_pain", "fuzzy_label": "mild", "source_state": "gerd", "target_state": "gerd", "weight": 0.45, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R033", "symptom_id": "nausea", "fuzzy_label": "mild", "source_state": "gerd", "target_state": "gerd", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R034", "symptom_id": "abdominal_pain", "fuzzy_label": "moderate", "source_state": "gerd", "target_state": "gerd", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R035", "symptom_id": "nausea", "fuzzy_label": "severe", "source_state": "gastroenteritis", "target_state": "gastroenteritis", "weight": 0.88, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R036", "symptom_id": "nausea", "fuzzy_label": "moderate", "source_state": "gastroenteritis", "target_state": "gastroenteritis", "weight": 0.72, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R037", "symptom_id": "abdominal_pain", "fuzzy_label": "severe", "source_state": "gastroenteritis", "target_state": "gastroenteritis", "weight": 0.85, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R038", "symptom_id": "abdominal_pain", "fuzzy_label": "moderate", "source_state": "gastroenteritis", "target_state": "gastroenteritis", "weight": 0.68, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R039", "symptom_id": "temperature_c", "fuzzy_label": "low_fever", "source_state": "gastroenteritis", "target_state": "gastroenteritis", "weight": 0.50, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R040", "symptom_id": "fatigue", "fuzzy_label": "moderate", "source_state": "gastroenteritis", "target_state": "gastroenteritis", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R041", "symptom_id": "body_aches", "fuzzy_label": "mild", "source_state": "gastroenteritis", "target_state": "gastroenteritis", "weight": 0.35, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R042", "symptom_id": "anxiety_level", "fuzzy_label": "severe", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.92, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R043", "symptom_id": "anxiety_level", "fuzzy_label": "moderate", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.75, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R044", "symptom_id": "fatigue", "fuzzy_label": "moderate", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.60, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R045", "symptom_id": "fatigue", "fuzzy_label": "severe", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.70, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R046", "symptom_id": "chest_pain", "fuzzy_label": "mild", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R047", "symptom_id": "shortness_of_breath", "fuzzy_label": "mild", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.45, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R048", "symptom_id": "dizziness", "fuzzy_label": "mild", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R049", "symptom_id": "headache", "fuzzy_label": "mild", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.35, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R050", "symptom_id": "heart_rate_bpm", "fuzzy_label": "elevated", "source_state": "anxiety_disorder", "target_state": "anxiety_disorder", "weight": 0.60, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R051", "symptom_id": "headache", "fuzzy_label": "moderate", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R052", "symptom_id": "dizziness", "fuzzy_label": "moderate", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.65, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R053", "symptom_id": "dizziness", "fuzzy_label": "severe", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.75, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R054", "symptom_id": "chest_pain", "fuzzy_label": "mild", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.45, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R055", "symptom_id": "shortness_of_breath", "fuzzy_label": "mild", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R056", "symptom_id": "heart_rate_bpm", "fuzzy_label": "elevated", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R057", "symptom_id": "heart_rate_bpm", "fuzzy_label": "tachycardia", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.70, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R058", "symptom_id": "fatigue", "fuzzy_label": "moderate", "source_state": "hypertension", "target_state": "hypertension", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R059", "symptom_id": "runny_nose", "fuzzy_label": "severe", "source_state": "allergic_rhinitis", "target_state": "allergic_rhinitis", "weight": 0.92, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R060", "symptom_id": "runny_nose", "fuzzy_label": "moderate", "source_state": "allergic_rhinitis", "target_state": "allergic_rhinitis", "weight": 0.80, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R061", "symptom_id": "sore_throat", "fuzzy_label": "mild", "source_state": "allergic_rhinitis", "target_state": "allergic_rhinitis", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R062", "symptom_id": "cough", "fuzzy_label": "mild", "source_state": "allergic_rhinitis", "target_state": "allergic_rhinitis", "weight": 0.45, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R063", "symptom_id": "headache", "fuzzy_label": "mild", "source_state": "allergic_rhinitis", "target_state": "allergic_rhinitis", "weight": 0.35, "source": "clinical_literature", "status": "research_only"},
+
+    {"rule_id": "R064", "symptom_id": "fatigue", "fuzzy_label": "severe", "source_state": "anemia", "target_state": "anemia", "weight": 0.90, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R065", "symptom_id": "fatigue", "fuzzy_label": "moderate", "source_state": "anemia", "target_state": "anemia", "weight": 0.75, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R066", "symptom_id": "dizziness", "fuzzy_label": "moderate", "source_state": "anemia", "target_state": "anemia", "weight": 0.70, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R067", "symptom_id": "dizziness", "fuzzy_label": "severe", "source_state": "anemia", "target_state": "anemia", "weight": 0.80, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R068", "symptom_id": "shortness_of_breath", "fuzzy_label": "moderate", "source_state": "anemia", "target_state": "anemia", "weight": 0.60, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R069", "symptom_id": "headache", "fuzzy_label": "mild", "source_state": "anemia", "target_state": "anemia", "weight": 0.40, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R070", "symptom_id": "heart_rate_bpm", "fuzzy_label": "elevated", "source_state": "anemia", "target_state": "anemia", "weight": 0.55, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R071", "symptom_id": "heart_rate_bpm", "fuzzy_label": "tachycardia", "source_state": "anemia", "target_state": "anemia", "weight": 0.65, "source": "clinical_literature", "status": "research_only"},
+    {"rule_id": "R072", "symptom_id": "chest_pain", "fuzzy_label": "mild", "source_state": "anemia", "target_state": "anemia", "weight": 0.30, "source": "clinical_literature", "status": "research_only"}
+  ]
+}

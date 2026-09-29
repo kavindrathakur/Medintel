@@ -1,0 +1,1 @@
+# MedFA Core Configuration

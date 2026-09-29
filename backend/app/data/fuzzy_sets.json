@@ -1,0 +1,241 @@
+{
+  "version": "1.0.0",
+  "description": "Fuzzy sets, conditions, symptoms, and red-flag rules for MedFA MVP",
+
+  "conditions": [
+    {
+      "condition_id": "influenza",
+      "name": "Influenza",
+      "description": "A contagious respiratory illness caused by influenza viruses, presenting with fever, body aches, and fatigue.",
+      "category": "Infectious",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "common_cold",
+      "name": "Common Cold",
+      "description": "A mild viral upper respiratory infection with symptoms such as runny nose, sore throat, and sneezing.",
+      "category": "Infectious",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "migraine",
+      "name": "Migraine",
+      "description": "A neurological condition with episodes of moderate to severe headache, often with nausea and light sensitivity.",
+      "category": "Neurological",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "tension_headache",
+      "name": "Tension Headache",
+      "description": "A common headache type with mild to moderate diffuse pain, often described as a band-like tightness.",
+      "category": "Neurological",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "gerd",
+      "name": "Gastroesophageal Reflux Disease (GERD)",
+      "description": "Chronic acid reflux causing heartburn, regurgitation, and upper abdominal discomfort.",
+      "category": "Digestive",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "gastroenteritis",
+      "name": "Gastroenteritis",
+      "description": "Inflammation of the stomach and intestines, typically causing nausea, vomiting, diarrhea, and abdominal pain.",
+      "category": "Digestive",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "anxiety_disorder",
+      "name": "Generalized Anxiety Disorder",
+      "description": "A psychological condition characterized by persistent worry, restlessness, fatigue, and physical tension.",
+      "category": "Psychological",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "hypertension",
+      "name": "Hypertension",
+      "description": "Persistently elevated blood pressure, which may present with headaches, dizziness, or be asymptomatic.",
+      "category": "Cardiovascular",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "allergic_rhinitis",
+      "name": "Allergic Rhinitis",
+      "description": "An allergic response causing sneezing, runny nose, nasal congestion, and itchy eyes.",
+      "category": "Respiratory",
+      "status": "research_only"
+    },
+    {
+      "condition_id": "anemia",
+      "name": "Iron-Deficiency Anemia",
+      "description": "A condition with insufficient healthy red blood cells, causing fatigue, weakness, dizziness, and pallor.",
+      "category": "Hematological",
+      "status": "research_only"
+    }
+  ],
+
+  "symptoms": [
+    {"symptom_id": "temperature_c", "name": "Body Temperature", "input_type": "numeric", "unit": "°C", "min": 35.0, "max": 42.0, "group": "General"},
+    {"symptom_id": "fatigue", "name": "Fatigue", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "General"},
+    {"symptom_id": "headache", "name": "Headache", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Neurological"},
+    {"symptom_id": "nausea", "name": "Nausea", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Digestive"},
+    {"symptom_id": "cough", "name": "Cough", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Respiratory"},
+    {"symptom_id": "sore_throat", "name": "Sore Throat", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Respiratory"},
+    {"symptom_id": "body_aches", "name": "Body Aches", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "General"},
+    {"symptom_id": "shortness_of_breath", "name": "Shortness of Breath", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Respiratory"},
+    {"symptom_id": "chest_pain", "name": "Chest Pain", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Cardiovascular"},
+    {"symptom_id": "dizziness", "name": "Dizziness", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Neurological"},
+    {"symptom_id": "runny_nose", "name": "Runny Nose", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Respiratory"},
+    {"symptom_id": "heartburn", "name": "Heartburn", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Digestive"},
+    {"symptom_id": "abdominal_pain", "name": "Abdominal Pain", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Digestive"},
+    {"symptom_id": "heart_rate_bpm", "name": "Heart Rate", "input_type": "numeric", "unit": "bpm", "min": 40, "max": 200, "group": "Cardiovascular"},
+    {"symptom_id": "anxiety_level", "name": "Anxiety Level", "input_type": "slider", "unit": null, "min": 0.0, "max": 1.0, "group": "Psychological"}
+  ],
+
+  "symptom_definitions": [
+    {
+      "symptom_id": "temperature_c",
+      "fuzzy_sets": [
+        {"label": "normal", "function": "trapezoidal", "parameters": [35.0, 36.0, 37.2, 37.5]},
+        {"label": "low_fever", "function": "triangular", "parameters": [37.2, 37.8, 38.5]},
+        {"label": "moderate_fever", "function": "triangular", "parameters": [38.0, 38.8, 39.5]},
+        {"label": "high_fever", "function": "trapezoidal", "parameters": [39.0, 39.8, 41.0, 42.0]}
+      ]
+    },
+    {
+      "symptom_id": "fatigue",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "headache",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "nausea",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "cough",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "sore_throat",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "body_aches",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "shortness_of_breath",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "chest_pain",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "dizziness",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "runny_nose",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "heartburn",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "abdominal_pain",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    },
+    {
+      "symptom_id": "heart_rate_bpm",
+      "fuzzy_sets": [
+        {"label": "bradycardia", "function": "trapezoidal", "parameters": [40, 40, 50, 60]},
+        {"label": "normal", "function": "trapezoidal", "parameters": [55, 65, 85, 95]},
+        {"label": "elevated", "function": "triangular", "parameters": [85, 100, 120]},
+        {"label": "tachycardia", "function": "trapezoidal", "parameters": [110, 130, 180, 200]}
+      ]
+    },
+    {
+      "symptom_id": "anxiety_level",
+      "fuzzy_sets": [
+        {"label": "mild", "function": "trapezoidal", "parameters": [0.0, 0.0, 0.2, 0.4]},
+        {"label": "moderate", "function": "triangular", "parameters": [0.2, 0.5, 0.8]},
+        {"label": "severe", "function": "trapezoidal", "parameters": [0.6, 0.8, 1.0, 1.0]}
+      ]
+    }
+  ],
+
+  "red_flag_rules": [
+    {
+      "symptom_id": "chest_pain",
+      "threshold": 0.8,
+      "operator": ">=",
+      "message": "⚠️ URGENT: Significant chest pain reported. Seek emergency medical care now."
+    },
+    {
+      "symptom_id": "shortness_of_breath",
+      "threshold": 0.9,
+      "operator": ">=",
+      "message": "⚠️ URGENT: Severe shortness of breath reported. Seek emergency medical care now."
+    },
+    {
+      "symptom_id": "temperature_c",
+      "threshold": 40.5,
+      "operator": ">=",
+      "message": "⚠️ URGENT: Very high body temperature detected. Seek emergency medical care now."
+    }
+  ]
+}
