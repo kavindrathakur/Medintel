@@ -1,0 +1,268 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+
+/* ============================================================
+   MedFA Design System — globals.css
+   Source of truth: Design.md
+   ============================================================ */
+
+
+/* ── CSS Custom Properties (Design.md tokens) ── */
+:root {
+  /* Primary Palette */
+  --primary-50: #F1FAFB;
+  --primary-100: #DDF4F7;
+  --primary-600: #16859A;
+  --primary-700: #146C7E;
+  --primary-900: #0F3D4C;
+
+  /* Neutral Palette */
+  --neutral-100: #F3F5F7;
+  --neutral-300: #D5DCE2;
+  --neutral-500: #6B7885;
+  --neutral-700: #44515C;
+  --neutral-950: #17212B;
+  --white: #FFFFFF;
+
+  /* Semantic Palette */
+  --success: #168A5B;
+  --success-bg: #E7F6EE;
+  --warning: #B76A00;
+  --warning-bg: #FFF4DE;
+  --danger: #C53A3A;
+  --danger-bg: #FDEBEC;
+  --info: #246CB6;
+  --info-bg: #EAF3FD;
+
+  /* Typography */
+  --font-sans: "Inter", "Noto Sans", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Spacing Scale (8px base grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Layout */
+  --max-content-width: 1200px;
+  --reading-width: 800px;
+  --card-radius: 12px;
+  --button-radius: 8px;
+  --pill-radius: 999px;
+  --card-shadow: 0 2px 8px rgba(23, 33, 43, 0.08);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Base Reset & Typography ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--neutral-950);
+  background-color: var(--primary-50);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── Type Scale (Design.md §4) ── */
+.text-display {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 700;
+  color: var(--primary-900);
+}
+
+h1, .text-h1 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 700;
+  color: var(--primary-900);
+}
+
+h2, .text-h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: var(--primary-900);
+}
+
+h3, .text-h3 {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--neutral-950);
+}
+
+.text-body {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.text-body-small {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.text-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.text-caption {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--neutral-500);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ── Focus Ring (Accessibility — Design.md §6) ── */
+:focus-visible {
+  outline: 1px solid var(--primary-700);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Links ── */
+a {
+  color: var(--primary-700);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--primary-600);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: var(--pill-radius);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
+}
+
+/* ── Utility Classes ── */
+.container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 var(--space-6);
+  }
+}
+
+@media (max-width: 639px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+}
+
+.reading-width {
+  max-width: var(--reading-width);
+}
+
+/* ── Confidence Colors (never use red/danger for confidence) ── */
+.confidence-higher {
+  color: var(--success);
+}
+.confidence-moderate {
+  color: var(--warning);
+}
+.confidence-lower {
+  color: var(--neutral-500);
+}
+
+.confidence-bar-higher {
+  background-color: var(--success);
+}
+.confidence-bar-moderate {
+  background-color: var(--warning);
+}
+.confidence-bar-lower {
+  background-color: var(--neutral-500);
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growWidth {
+  from { width: 0; }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-normal) ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-slow) ease forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
